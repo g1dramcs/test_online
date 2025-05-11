@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/enter_page.css') }}">
+</head>
+<body>
+
+  <header>
+    <h1>TEST Online</h1>
+  </header>
+
+  <main class="container">
+    <div class="message-box">
+      <p>Для выполнения или создания тестовых заданий необходимо войти под своим именем в систему.</p>
+    </div>
+    <button id="goToButton" class="login-btn">Войти</button>
+  </main>
+  <script>
+    document.getElementById('goToButton').addEventListener('click', function() {
+        window.location.href = "{{ url_for('about') }}";
+    });
+  </script>
+</body>
+</html>

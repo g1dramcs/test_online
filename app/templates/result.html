@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Результаты</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/result_page.css') }}" />
+</head>
+<body>
+
+  <header>
+    <h1>TEST Online</h1>
+    <div class="profile">
+        <span>профиль</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
+      </div>
+  </header>
+
+  <main class="container">
+    <div class="results-box">
+      <h2>Тестирование по дисциплине<br><span class="discipline">"Выбранная дисциплина"</span></h2>
+      <h3>Результаты</h3>
+
+      <div id="results-content">
+      </div>
+
+      <button onclick="window.close()">Закрыть</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,44 +1,30 @@
-<!-- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <title>Авторизация</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    
+<link rel="stylesheet" href="{{ url_for('static', filename='/style/auth.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST Online</title>
+  
 </head>
 <body>
-    <header>
-        <h1>Авторизация</h1>
-    </header>
-    <form id="auth", method="post">
-        <input class="auth_field" type="text" name="username" placeholder="Логин">
-        <input class="auth_field" type="password" name="password" placeholder="Пароль">
-        <select class="auth_field" name="role" id="role">
-            <option value="user">Пользователь</option>
-            <option value="admin">Администратор</option>
-            <option value="teacher">Преподаватель</option>
-        </select>
-        <button class="auth_field" type="submit">Войти</button>
-    </form>
+  <header>
+    <h1>TEST Online</h1>
+  </header>
+  <div class="container">
+    <div class="auth-box">
+      <h2>Авторизация</h2>
+      <input id="login" type="text" placeholder="логин">
+      <input id="password" type="password" placeholder="пароль">
+      <select id="role" name="role">
+        <option value="student">Студент</option>
+        <option value="teacher">Преподаватель</option>
+      </select>
+      <button onclick="auth_user()">Войти</button>
       
+    </div>
+  </div>
+
+  <script src="/static/script/script.js"></script>
 </body>
-<script src="/static/script/auth.js"></script>
-</html> -->
-
-<!-- {% extends "index.html" %}
-
-{% block content %} -->
-  <h1>Sign In</h1>
-  <form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-      {{ form.username.label }}<br>
-      {{ form.username(size=32) }}
-    </p>
-    <p>
-      {{ form.password.label }}<br>
-      {{ form.password(size=32) }}
-    </p>
-    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-    <p>{{ form.submit() }}</p>
-  </form>
-<!-- {% endblock %} -->
+</html>

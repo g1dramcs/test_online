@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eee;
+  }
+  
+  header {
+    background-color: #c0e4ff;
+    padding: 20px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+  
+  .results-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 25px;
+    border-radius: 6px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .results-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .discipline {
+    font-style: italic;
+  }
+  
+  .results-box h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #results-content {
+    text-align: left;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  button {
+    padding: 10px 25px;
+    font-size: 1rem;
+    background-color: #b2dbff;
+    border: 1px solid #7aa9c6;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #a1d0f7;
+  }
+  
+  @media (max-width: 500px) {
+    header h1 {
+      font-size: 1.4rem;
+    }
+  
+    .results-box {
+      padding: 20px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
