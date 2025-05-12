@@ -20,3 +20,7 @@ def question():
 @app.route('/test_req')
 def test_req():
     return render_template('index.html')
+
+@app.route('/editor')
+def editor():
+    return render_template('editablequestion.html')

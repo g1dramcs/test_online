@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEST Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/styles_editor.css') }}" />
+</head>
+<body>
+
+  <header>
+    <h1>TEST Online</h1>
+    <div class="profile">
+        <span>профиль</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
+      </div>
+  </header>
+
+  <main class="container">
+    <div class="test-box">
+      <h2>Вопрос по дисциплине <br><span class="discipline">"Выбранная дисциплина"</span></h2>
+      <div class="question" id="question-text"><textarea placeholder="Сам вопрос что-то тут много написано"></textarea> </div>
+
+      <form class="answers" id="answers-form">
+        <label><input type="radio" name="answer" /> <input placeholder="Вариант 1"></label>
+        <label><input type="radio" name="answer" /> <input placeholder="Вариант 2"></label>
+        <label><input type="radio" name="answer" /> <input placeholder="Вариант 3"></label>
+        <label><input type="radio" name="answer" /> <input placeholder="Вариант 4"></label>
+      </form>
+
+      <div class="bottom-panel">
+        <button id="next-btn">Сохранить</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
