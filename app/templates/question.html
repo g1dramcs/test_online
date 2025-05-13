@@ -19,26 +19,118 @@
   <main class="container">
     <div class="test-box">
       <h2>Тестирование по дисциплине<br><span class="discipline">"Выбранная дисциплина"</span></h2>
-      <div class="question" id="question-text">1. Сам вопрос что-то тут много написано</div>
-
-      <form class="answers" id="answers-form">
-        <label><input type="radio" name="answer" /> Вариант ответа 1</label>
-        <label><input type="radio" name="answer" /> Вариант ответа 2</label>
-        <label><input type="radio" name="answer" /> Вариант ответа 3</label>
-        <label><input type="radio" name="answer" /> Вариант ответа 4</label>
-      </form>
-
-      <div class="bottom-panel">
-        <div class="nav-questions" id="nav-questions">
-            <button id="prev-btn" disabled>Назад</button>
-            <span id="question-number">Вопрос 1 из 10</span>
-            <button id="next-btn" disabled>Далее</button>
-        </div>
-        <button id="next-btn">Далее</button>
-      </div>
+      <div id="questions-container"></div>
+      <button id="submit-btn">СДАТЬ ТЕСТ</button>
     </div>
   </main>
+  
+  </main>
 
-  <script src="/static/script/question_page.js"></script>
+  <script>
+    // Имитация данных с сервера
+    const data = {
+    "questions": [
+        {
+            "id": 4,
+            "text": "Ответ 1",
+            "answers": [
+                {
+                    "id": 1,
+                    "text": "Ответ 1"
+                },
+                {
+                    "id": 2,
+                    "text": "ответ 2"
+                },
+                {
+                    "id": 3,
+                    "text": "ответ 3"
+                },
+                {
+                    "id": 4,
+                    "text": "ответ 4"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "Ответ 2",
+            "answers": [
+                {
+                    "id": 5,
+                    "text": "ответ 5.1"
+                },
+                {
+                    "id": 6,
+                    "text": "ответ 5.2"
+                },
+                {
+                    "id": 7,
+                    "text": "ответ 5.3"
+                },
+                {
+                    "id": 8,
+                    "text": "ответ 5.4"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "text": "Ответ 3",
+            "answers": [
+                {
+                    "id": 9,
+                    "text": "ответ 6.4"
+                },
+                {
+                    "id": 10,
+                    "text": "ответ 6.3"
+                },
+                {
+                    "id": 11,
+                    "text": "ответ 6.2"
+                },
+                {
+                    "id": 12,
+                    "text": "ответ 6.1"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "text": "не связан с тестом",
+            "answers": null
+        }
+    ]
+};
+    
+    const questions = data.questions.filter(q => Array.isArray(q.answers));
+    
+    const container = document.getElementById('questions-container');
+    
+    questions.forEach((question, qIndex) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question-block');
+      questionDiv.innerHTML = `
+        <div class="question-text">${qIndex + 1}. ${question.text}</div>
+        <form class="answers" data-question-id="${question.id}">
+          ${question.answers.map(answer => `
+            <label>
+              <input type="radio" name="question_${question.id}" value="${answer.id}">
+              ${answer.text}
+            </label>
+          `).join('')}
+        </form>
+      `;
+      container.appendChild(questionDiv);
+    });
+    
+    
+    document.getElementById('submit-btn').addEventListener('click', () => {
+      alert('Тест завершён!');
+    });
+
+    </script>
+    
 </body>
 </html>

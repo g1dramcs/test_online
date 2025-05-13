@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEST Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/question_page.css') }}" />
+</head>
+<body>
+
+  <header>
+    <h1>TEST Online</h1>
+    <div class="profile">
+        <span>профиль</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
+      </div>
+  </header>
+
+  <main class="container">
+    <div class="test-box">
+      <h2>Тестирование по дисциплине<br><span class="discipline">"Выбранная дисциплина"</span></h2>
+      <div class="question" id="question-text">1. Сам вопрос что-то тут много написано</div>
+
+      <form class="answers" id="answers-form">
+        <label><input type="radio" name="answer" /> Вариант ответа 1</label>
+        <label><input type="radio" name="answer" /> Вариант ответа 2</label>
+        <label><input type="radio" name="answer" /> Вариант ответа 3</label>
+        <label><input type="radio" name="answer" /> Вариант ответа 4</label>
+      </form>
+
+      <div class="bottom-panel">
+        <div class="nav-questions" id="nav-questions">
+            <button id="prev-btn" disabled>Назад</button>
+            <span id="question-number">Вопрос 1 из 10</span>
+            <button id="next-btn" disabled>Далее</button>
+        </div>
+        <button id="next-btn">Далее</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/script/question_page.js"></script>
+</body>
+</html>
