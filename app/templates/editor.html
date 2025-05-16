@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактор тестов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+  }
+
+    body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px 20px;
+    }
+
+    button {
+        padding: 2px 8px;
+        font-size: 1rem;
+        border-radius: 2px;
+        background-color: #b2dbff;
+        border: 1px solid #a1d0f7;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    
+    </style>
+
+<body>
+
+  
+    <div class="card">
+        <div class="card-header">
+            <h1 style>Редактор тестов</h1>
+        </div>
+    <hr/>
+    
+    
+    {% if not questions %}
+        <p>В тесте пока нет вопросов</p>
+    {% else %}
+    {% for question in questions %}
+    <div>
+        <strong>{{ question.text }}</strong>
+        
+
+        <form method="POST" action="/delete_question" style="display: inline;">
+             <input type="hidden" name="test_id" value="{{ test_id }}">
+            <input type="hidden" name="question_id" value="{{ question.id }}">
+            <button type="submit">Удалить вопрос</button>
+        </form>
+        <div></div>
+
+        <form method="POST" action="/add_answer" style="display: inline;">
+             <input type="hidden" name="test_id" value="{{ test_id }}">
+            <input type="hidden" name="question_id" value="{{ question.id }}">
+            <input type="text" name="answer_text" placeholder="Текст ответа" required>
+            <label>
+                <input type="checkbox" name="correct" value="true"> Правильный ответ
+            </label>
+            
+            <button type="submit">Добавить ответ</button>
+        </form>
+        
+        {% if question.answers %}
+        <ul>
+            {% for answer in question.answers %}
+            <li>
+                {{ answer.text }} {% if answer.correct %}(Правильный){% endif %}
+                <form method="POST" action="/delete_answer" style="display: inline;">
+                    <input type="hidden" name="answer_id" value="{{ answer.id }}">
+                    <button type="submit">Удалить ответ</button>
+                    <input type="hidden" name="test_id" value="{{ test_id }}">
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Нет ответов</p>
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+    {% endif %}
+    
+
+    <form method="POST" action="/add_question">
+        <h3>Добавить новый вопрос:</h3>
+        <input type="text" name="question_text" placeholder="Текст вопроса" required>
+         <input type="hidden" name="test_id" value="{{ test_id }}">
+        <button type="submit">Добавить вопрос</button>
+    </form>
+    <hr/>
+
+
+    <button style="width: 100%; height: 40px;">Обратно в профиль</button>
+
+
+    </div>
+    
+</body>
+</html>

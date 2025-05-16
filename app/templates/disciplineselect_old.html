@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST Online</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/disciplineselect_page_fix.css') }}" />
+</head>
+<body>
+
+<header>
+  <div><h2>TEST Online</h2></div>
+  <div class="profile">
+    <span>профиль</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
+  </div>
+</header>
+
+<main class="container">
+  <div class="form-group">
+    <label for="discipline">Дисциплина</label>
+    <select id="discipline" aria-placeholder="Выберите дисциплину">
+        <option value="" disabled selected>Выберите дисциплину</option>
+        <option value="math">Математика</option>
+        <option value="physics">Физика</option>
+        <option value="chemistry">Химия</option>
+        <option value="biology">Биология</option>
+        <option value="history">История</option>      
+    </select>
+  </div>
+
+  <p>Что-то еще тут студент выбирает, мб препода, смотря как ты это сделаешь</p>
+  <p>После того, как тут все выбрано, кнопка становится активна</p>
+
+  <button id="startBtn">Пройти тест</button>
+  <button class="results-btn">Результаты</button>
+</main>
+
+<script>
+  const select = document.getElementById('discipline');
+  const btn = document.getElementById('startBtn');
+
+  select.addEventListener('change', function () {
+    if (select.value) {
+      btn.classList.add('active');
+      btn.disabled = false;
+    } else {
+      btn.classList.remove('active');
+      btn.disabled = true;
+    }
+  });
+</script>
+
+</body>
+</html>

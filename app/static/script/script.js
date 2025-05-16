@@ -1,5 +1,6 @@
 let xhr = new XMLHttpRequest();
 
+<<<<<<< HEAD
 // send req to DB method. data:dict(JSON)
 // let send_req = (req_data) => {
 //   xhr.open('POST', 'api/send_req', true);
@@ -22,6 +23,8 @@ let xhr = new XMLHttpRequest();
 
 //   xhr.send(JSON.stringify(req_data)); 
 // }
+=======
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
 
 const send_req = (req_data) => {
   return new Promise((resolve, reject) => {
@@ -40,6 +43,10 @@ const send_req = (req_data) => {
           }
         } else {
           reject(new Error(xhr.statusText || 'Request failed'));
+<<<<<<< HEAD
+=======
+          alert('Ошибка! Сервер не отвечает')
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
         }
       }
     };
@@ -67,7 +74,14 @@ let get_test = () => {
 let create_test = () => {
 
   data = {
+<<<<<<< HEAD
       'Oper': 'Create Test'
+=======
+      'Oper': 'Create Test',
+      'Params': {
+        'subject_id': 1
+      }
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
   }
 
   send_req(data);
@@ -155,7 +169,17 @@ async function auth_user() {
   // check valid
   if (res.data.status) {
     console.log("Login success!")
+<<<<<<< HEAD
     window.location.href = "main";
   }
 }
 
+=======
+    window.location.href = role;
+  }
+}
+
+
+
+
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)

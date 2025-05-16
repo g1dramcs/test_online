@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEST Online</title>
+<<<<<<< HEAD
   <link rel="stylesheet" href="{{ url_for('static', filename='/style/disciplineselect_page_fix.css') }}" />
 </head>
 <body>
@@ -15,6 +16,26 @@
     <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
   </div>
 </header>
+=======
+  <link rel="stylesheet" href="{{ url_for('static', filename='/style/disciplineselect.css') }}" />
+</head>
+<body>
+
+  <header>
+    <h1>TEST Online</h1>
+    <button style="width: 100px; height: 40px; padding: 10px 10px; font-size: 14px;">Мои тесты</button>
+    <div class="profile">
+        <div class="dropdown">
+            <button class="dropbtn">Профиль</button>
+            <div class="dropdown-content">
+                <a href="#">Мои тесты</a>
+                <a href="#"  class="logout">Выйти</a>
+            </div>
+          </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="profile" width="32">
+      </div>
+  </header>
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
 
 <main class="container">
   <div class="form-group">
@@ -29,19 +50,79 @@
     </select>
   </div>
 
+<<<<<<< HEAD
   <p>Что-то еще тут студент выбирает, мб препода, смотря как ты это сделаешь</p>
   <p>После того, как тут все выбрано, кнопка становится активна</p>
+=======
+  <div>
+    <label for="test-type">Тест</label>
+    <select id="testselect">
+        <option value="" disabled selected>Выберите тест</option>
+    </select>
+  </div>
+
+  
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
 
   <button id="startBtn">Пройти тест</button>
   <button class="results-btn">Результаты</button>
 </main>
 
 <script>
+<<<<<<< HEAD
   const select = document.getElementById('discipline');
   const btn = document.getElementById('startBtn');
 
   select.addEventListener('change', function () {
     if (select.value) {
+=======
+  const testlist = {
+    math: [
+      { id: 1, name: 'Тест по алгебре' },
+      { id: 2, name: 'Тест по геометрии' },
+    ],
+    physics: [
+      { id: 3, name: 'Тест по механике' },
+      { id: 4, name: 'Тест по оптике' },
+    ],
+    chemistry: [
+      { id: 5, name: 'Тест по органике' },
+      { id: 6, name: 'Тест по неорганике' },
+    ],
+    biology: [
+      { id: 7, name: 'Тест по ботанике' },
+      { id: 8, name: 'Тест по зоологии' },
+    ],
+    history: [
+      { id: 9, name: 'Тест по истории России' },
+      { id: 10, name: 'Тест по всемирной истории' },
+    ]
+  };
+
+  const disciplineSelect = document.getElementById('discipline');
+  const testSelect = document.getElementById('testselect');
+  const btn = document.getElementById('startBtn');
+
+  disciplineSelect.addEventListener('change', function () {
+    const selectedDiscipline = disciplineSelect.value;
+    const tests = testlist[selectedDiscipline] || [];
+
+    testSelect.innerHTML = '<option value="" disabled selected>Выберите тест</option>';
+
+    tests.forEach(test => {
+      const option = document.createElement('option');
+      option.value = test.id;
+      option.textContent = test.name;
+      testSelect.appendChild(option);
+    });
+
+    btn.classList.remove('active');
+    btn.disabled = true;
+  });
+
+  testSelect.addEventListener('change', function () {
+    if (testSelect.value) {
+>>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
       btn.classList.add('active');
       btn.disabled = false;
     } else {

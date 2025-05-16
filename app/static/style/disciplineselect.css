@@ -1,0 +1,147 @@
+.dropbtn {
+  background-color: #c2e5ff;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content .logout:hover {
+        color: black; background-color: red;
+}
+
+.dropdown-content a:hover {background-color: #c2e5ff}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #c2e5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #c2e5ff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  flex-wrap: wrap;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#startBtn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: grey;
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+#startBtn.active {
+  background-color: #cce6ff;
+  color: black;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #b2dbff;
+  border: 1px solid #a1d0f7;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.results-btn {
+  margin-top: 10px;
+  padding: 10px 16px;
+  width: 100%;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .results-btn, #startBtn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
