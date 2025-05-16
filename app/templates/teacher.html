@@ -10,12 +10,39 @@
             flex-direction: column;
             align-items: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
         }
         header {
+            width: 100%;
+            background-color: #c0e4ff;
+            padding: 20px;
+            border-bottom: 1px solid #000;
             display: flex;
-            gap: 20px;
+            justify-content: flex-start;
             align-items: center;
-            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            margin-left: 1rem;
+            font-size: 1.8rem;
+        }
+        header a {
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        .main-box {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
         }
         .test-item {
             cursor: pointer;
@@ -35,23 +62,24 @@
         <a href="/teacher">Тесты</a>
         <a href="/results">Результаты</a>
     </header>
-    <h3>Дисциплины и тесты</h3>
-        
-    <div>
-        {% for subject in subjects %}
-            <h3>{{ subject.name }}</h3>
-            <ul style="list-style: none; padding-left: 0;">
-                {% for test in tests_by_subject.get(subject.id, []) %}
-                    <li class="test-item" onclick="window.location.href='/editor/{{ test.id }}'">
-                        {{ test.questions }}
-                    </li>
-                {% else %}
-                    <li>Нет тестов для этой дисциплины</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Нет доступных дисциплин</p>
-        {% endfor %}
-    </div>
+    <main>            
+        <div class="main-box">
+            <h3>Дисциплины и тесты</h3>
+            {% for subject in subjects %}
+                <h3>{{ subject.name }}</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    {% for test in tests_by_subject.get(subject.id, []) %}
+                        <li class="test-item" onclick="window.location.href='/editor/{{ test.id }}'">
+                            {{ test.questions }}
+                        </li>
+                    {% else %}
+                        <li>Нет тестов для этой дисциплины</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Нет доступных дисциплин</p>
+            {% endfor %}
+        </div>
+    </main>
 </body>
 </html>

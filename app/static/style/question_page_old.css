@@ -70,11 +70,7 @@
   
   .bottom-panel {
     display: flex;
-<<<<<<< HEAD
-    flex-direction: column;
-=======
     flex-direction: column; 
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
     gap: 20px;
     margin-top: 30px;
     align-items: center;
@@ -131,9 +127,6 @@
       gap: 5px;
     }
   }
-<<<<<<< HEAD
-  
-=======
   
   .dropbtn {
     background-color: #c2e5ff;
@@ -181,4 +174,3 @@
   .dropdown:hover .dropbtn {
     background-color: #c2e5ff;
   }
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)

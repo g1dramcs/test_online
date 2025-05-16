@@ -4,13 +4,8 @@ from psycopg2 import sql
 from app import app
 
 DB_CONFIG = {
-<<<<<<< HEAD
-    "dbname": "test_online_db",
-    "user": "test_online_db",
-=======
-    "dbname": "test_online_db_v2",
-    "user": "test_online_db_v2",
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
+    "dbname": "t_onl_db",
+    "user": "t_onl_db",
     "password": "1234",
     "host": "localhost",
     "port": 5432

@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-const totalQuestions = 5;
-let currentQuestion = 1;
-
-const questions = Array.from({ length: totalQuestions }, (_, i) => ({
-  text: `${i + 1}. Текст вопроса номер`,
-  answers: [
-    `Вариант ответа 1`,
-    `Вариант ответа 2`,
-    `Вариант ответа 3`,
-    `Вариант ответа 4`,
-  ],
-}));
-
-// типо загрузка всех вопросов
-=======
 let currentQuestion = 1;
 
 
@@ -109,7 +93,6 @@ const questions = data.questions.filter(q => Array.isArray(q.answers));
 const container = document.getElementById('questions-container');
 
 // типо загрузка всех вопросов от старой страницы
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
 
 function loadQuestion(index) {
   const questionData = questions[index - 1];
@@ -117,19 +100,13 @@ function loadQuestion(index) {
 
   const form = document.getElementById('answers-form');
   form.innerHTML = questionData.answers.map((ans, i) => `
-<<<<<<< HEAD
-    <label><input type="radio" name="answer" value="${i}"> ${ans}</label>
-=======
     <label><input type="radio" name="answer" value="${i}"> ${ans.text}</label>
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
   `).join('');
 
   updateNav(index);
   updateButton(index);
 }
 
-<<<<<<< HEAD
-=======
 
 // скрипт от новой страницы
 // questions.forEach((question, qIndex) => {
@@ -150,7 +127,6 @@ function loadQuestion(index) {
 // });
 
 
->>>>>>> 40affd6 (Update some pages and style. Added admin and teacher panels)
 const send_req = (req_data) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
